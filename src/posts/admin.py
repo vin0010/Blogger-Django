@@ -7,7 +7,8 @@ from .models import Post
 
 class PostModelAdmin(admin.ModelAdmin):
     list_display = ["title", "timestamp"]
-
+    list_display_links = ["title"]
+    # lis
     class Meta:
         model = Post
 
