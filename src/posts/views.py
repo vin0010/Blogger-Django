@@ -7,7 +7,22 @@ from django.http import FileResponse
 from posts import urls
 
 
-def posts_home(request):
+def posts_list(request):
     print("------>")
-    # return FileResponse("urls.py")
-    return HttpResponse("<h1>Hello</h1>")
+    return HttpResponse("<h1>List</h1>")
+
+def posts_create(request):
+    print("------>")
+    return HttpResponse("<h1>Create</h1>")
+
+def posts_update(request):
+    print("------>")
+    return HttpResponse("<h1>Update</h1>")
+
+def posts_detail(request):
+    print("------>")
+    return HttpResponse("<h1>Detail</h1>")
+
+def posts_delete(request):
+    print("------>")
+    return HttpResponse("<h1>Delete</h1>")
