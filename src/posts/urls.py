@@ -17,11 +17,21 @@ Including another URLconf
 from django.conf.urls import url
 
 import posts
+from .views import (posts_create,
+                    posts_delete,
+                    posts_detail,
+                    posts_list,
+                    posts_update)
 
 urlpatterns = [
-    url(r'^$', "posts.views.posts_list"),
-    url(r'^create', "posts.views.posts_create"),
-    url(r'^update', "posts.views.posts_update"),
-    url(r'^detail', "posts.views.posts_detail"),
-    url(r'^delete', "posts.views.posts_delete"),
+    # url(r'^$', "posts.views.posts_list"),
+    url(r'^$', posts_list),
+    # url(r'^create', "posts.views.posts_create"),
+    url(r'^create', posts_create),
+    # url(r'^update', "posts.views.posts_update"),
+    url(r'^update', posts_update),
+    # url(r'^detail', "posts.views.posts_detail"),
+    url(r'^detail', posts_detail),
+    # url(r'^delete', "posts.views.posts_delete"),
+    url(r'^delete', posts_delete),
 ]
