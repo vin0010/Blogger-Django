@@ -55,8 +55,8 @@ def posts_update(request):
     return render(request, "index.html", context)
 
 
-def posts_detail(request):
-    instance = get_object_or_404(Post, id="1")
+def posts_detail(request, id=None):
+    instance = get_object_or_404(Post, id=id)
     print("------>", instance.id)
     context = {
         "Detail": "Detail",
