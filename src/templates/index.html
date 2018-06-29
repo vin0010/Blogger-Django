@@ -5,7 +5,13 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>{{Detail}} Works</h1>
-    <h1>Vinoth</h1>
+    <h1>List of Posts</h1>
+    {% for i in myqueryset %}
+    Title : {{i.title}}<br/>
+    Content : {{i.content}}<br/>
+    Timestamp : {{i.timestamp}}<br/>
+    Primary Key : {{i.pk}}<br/>
+    Id : {{i.id}}<br/>
+    {% endfor %}
 </body>
 </html>

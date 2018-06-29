@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.http import FileResponse
 
@@ -6,9 +6,9 @@ from django.http import FileResponse
 from posts import urls
 from .models import Post
 
-
 def posts_list(request):
     print("------>")
+    # instance = Post.objects.get(id=100)
     queryset = Post.objects.all()
     result = ""
     for obj in queryset:
@@ -17,7 +17,7 @@ def posts_list(request):
     if request.user.is_authenticated():
         context = {
             "Detail": result,
-            "queryset": queryset,
+            "myqueryset": queryset,
             "Name": "Vinoth",
             "Designation": "Software Engineer"
         }
@@ -56,12 +56,14 @@ def posts_update(request):
 
 
 def posts_detail(request):
-    print("------>")
+    instance = get_object_or_404(Post, id="1")
+    print("------>", instance.id)
     context = {
         "Detail": "Detail",
+        "myqueryset" : instance,
     }
     # return HttpResponse("<h1>Detail</h1>")
-    return render(request, "index.html", context)
+    return render(request, "post_detail.html", context)
 
 
 def posts_delete(request):
